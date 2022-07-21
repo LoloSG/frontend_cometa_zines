@@ -1,0 +1,67 @@
+img{
+    display: block;
+    width: 100%;
+}
+
+figure{
+   
+    margin: 0 auto;
+    width: 20%;
+}
+
+.header-logo{
+padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(255, 206, 9);
+   
+}
+
+.navbar{
+    background-color: black;
+}
+
+.form-inline{
+    display: flex;
+    
+}
+
+.btn{
+    margin-left: 5px;
+}
+
+.estela{
+    text-align: center;
+    border: 1px solid rgb(255, 206, 9);
+    border-radius: 5px;
+    color: rgb(255, 206, 9);
+    width: 160px;
+    height: 35px;
+    margin-left: 22%;
+    padding-top: 5px;
+}
+
+.estela:hover{
+    background-color: rgb(255, 206, 9);
+    color: black;
+    transition: 0.25s;
+    
+}
+
+
+@media(max-width:425px){
+    .estela{
+        margin-left: 5px;
+    }
+
+    
+} 
+
+@media(max-width:1004px){
+    .estela{
+        margin-left: 5px;
+    }
+
+
+    
+} 
+

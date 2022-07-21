@@ -1,0 +1,22 @@
+<div class="container">
+
+    <figure>
+        <img src="https://static.vecteezy.com/system/resources/previews/001/206/079/non_2x/punk-png.png" alt="">
+    </figure>
+
+
+    <div class="formulario">
+        <h2>¡Entra!</h2>
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <input type="submit" value="Enviar" class="btn btn-outline-warning">
+        </form>
+    </div>
+</div>
