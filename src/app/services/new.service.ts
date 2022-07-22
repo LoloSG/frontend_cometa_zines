@@ -15,13 +15,13 @@ export class NewService {
     private httpClient: HttpClient
   ) {
     this.baseUrl = 'http://localhost:3000/api/new'
-  }
+  };
 
-  registro(values: { name: string, surname: string, username: string, email: string, password: string }): Promise<any> {
+  registro(values: { name: string, surname:string, username: string, email: string, password: string }): Promise<any> {
     return lastValueFrom(
       this.httpClient.post<any>(`${this.baseUrl}/register`, values)
     );
-  }
+  };
 
   login(values: { email: string, password: string }): Promise<any> {
     return lastValueFrom(
@@ -34,17 +34,22 @@ export class NewService {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('token')!
       })
-    }
+    };
 
     return lastValueFrom(
       this.httpClient.get<User[]>(this.baseUrl, httpOptions)
     );
-  }
+  };
 
   create(values: any): Promise<any> {
     return lastValueFrom(
       this.httpClient.post(this.baseUrl, values)
     );
-  }
+  };
+
+
+  
+
+
 
 } 

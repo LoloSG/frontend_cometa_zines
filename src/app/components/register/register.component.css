@@ -28,11 +28,11 @@ figure{
 
 .form-label{
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 input{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 h2{
@@ -41,9 +41,26 @@ h2{
 }
 
 
-.btn{
+.btn{margin-top: 8px;
     margin-left: 33%;
     width: 33%;
+}
+
+.ng-invalid.ng-touched{
+    border-color: tomato;
+}
+
+.error{
+    color: tomato;
+    position:absolute;
+         z-index:1;
+   margin-top: -15px;
+    font-size: 10px;
+}
+
+.ng-valid.ng-touched{
+  
+    border-color: lightgreen;
 }
 
 

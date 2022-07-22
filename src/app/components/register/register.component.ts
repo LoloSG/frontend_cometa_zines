@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewService } from 'src/app/services/new.service';
 
@@ -18,11 +18,28 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {
     this.formRegister = new FormGroup({
-      name: new FormControl<string | null>(null),
-      surname: new FormControl<string | null>(null),
-      username: new FormControl<string | null>(null),
-      email: new FormControl<string | null>(null),
-      password: new FormControl<number | null>(null),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      surname: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$/)
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        // Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,100}$/),
+        Validators.minLength(5),
+        Validators.maxLength(15)
+      ])
     });
 
     this.errores = [];
@@ -47,5 +64,28 @@ export class RegisterComponent implements OnInit {
       .catch(err => {
         console.log(err);
       });
-  }
+  };
+
+
+  // passwordValidator(form: FormGroup) {
+  //   const passwordValue = form.get('password').value;
+  //   const passwordRepeatValue = form.get('password_repeat').value;
+
+  //   if (passwordValue === passwordRepeatValue) {
+  //     return null;
+  //   } else {
+  //     return { passwordvalidator: true }
+  //   }
+  // }
+
+
+  // async userValidator(user) {
+  //   this.existingUser = await this.newUserService.getByUser(user);
+
+  //   if (this.existingUser) {
+  //     this.userValid = 0;
+  //   } else {
+  //     this.userValid = 1;
+  //   }
+  // }
 }

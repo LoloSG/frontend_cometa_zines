@@ -6,22 +6,63 @@
             <div>
                 <label class="form-label">name</label>
                 <input type="text" formControlName="name" class="form-control">
+                <p class="error"
+                    *ngIf="formRegister.get('name')?.hasError('required')&&formRegister.get('name')?.touched">
+                    Debes añadir un nombre</p>
+                <p class="error"
+                    *ngIf="formRegister.get('name')?.hasError('minlength')&&formRegister.get('name')?.touched">
+                    El nombre debe contener al menos tres caracteres</p>
             </div>
             <div>
                 <label class="form-label">surname</label>
                 <input type="text" formControlName="surname" class="form-control">
+                <p class="error"
+                    *ngIf="formRegister.get('surname')?.hasError('required')&&formRegister.get('surname')?.touched">
+                    Debes añadir al menos un apellido</p>
+                <p class="error"
+                    *ngIf="formRegister.get('surname')?.hasError('minlength')&&formRegister.get('surname')?.touched">
+                    El apellido debe contener al menos tres caracteres</p>
             </div>
             <div>
                 <label class="form-label">username</label>
                 <input type="text" formControlName="username" class="form-control">
+                <p class="error"
+                    *ngIf="formRegister.get('username')?.hasError('required')&&formRegister.get('username')?.touched">
+                    Debes añadir un nombre de usuario</p>
+                <p class="error"
+                    *ngIf="formRegister.get('username')?.hasError('minlength')&&formRegister.get('username')?.touched">
+                    El nombre de usuario debe contener al menos tres caracteres</p>
+
+                <!-- <div class="row">
+                        <button class="btn btn-dark col-4 btn-sm mt-2 ml-2" (click)="userValidator(user.value)">Comprobar
+                            usuario</button>
+                        <p *ngIf="(userValid === 1)" class="col-6 text-success mt-4">
+                            Usuario válido
+                        </p>
+                        <p *ngIf="(userValid === 0)" class="col-6 text-danger mt-4">
+                            Usuario ya existente
+                        </p>
+                    </div> -->
             </div>
             <div>
                 <label class="form-label">Email</label>
                 <input type="text" formControlName="email" class="form-control">
+                <p class="error"
+                    *ngIf="formRegister.get('email')?.hasError('required')&&formRegister.get('email')?.touched">
+                    Debes añadir un email</p>
             </div>
             <div>
                 <label class="form-label">password</label>
                 <input type="password" formControlName="password" class="form-control">
+                <p class="error"
+                    *ngIf="formRegister.get('password')?.hasError('required')&&formRegister.get('password')?.touched">
+                    Debes añadir una contraseña</p>
+                <p class="error"
+                    *ngIf="formRegister.get('password')?.hasError('minlength')&&formRegister.get('password')?.touched">
+                    La contraseña debe contener entre 5 y 15 caracteres</p>
+                <p class="error"
+                    *ngIf="formRegister.get('password')?.hasError('maxlength')&&formRegister.get('password')?.touched">
+                    La contraseña debe contener entre 5 y 15 caracteres</p>
             </div>
 
 
