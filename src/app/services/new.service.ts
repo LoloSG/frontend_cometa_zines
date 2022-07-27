@@ -17,7 +17,7 @@ export class NewService {
     this.baseUrl = 'http://localhost:3000/api/new'
   };
 
-  registro(values: { name: string, surname:string, username: string, email: string, password: string }): Promise<any> {
+  registro(values: { name: string, surname: string, username: string, email: string, password: string }): Promise<any> {
     return lastValueFrom(
       this.httpClient.post<any>(`${this.baseUrl}/register`, values)
     );
@@ -48,7 +48,7 @@ export class NewService {
   };
 
 
-  
+
 
 
 

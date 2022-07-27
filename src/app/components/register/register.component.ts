@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
 
   formRegister: FormGroup;
   errores: string[];
+  status: string;
 
   constructor(
     private newUser: NewService,
@@ -43,6 +44,7 @@ export class RegisterComponent implements OnInit {
     });
 
     this.errores = [];
+    this.status = ""
   }
 
   ngOnInit(): void {
@@ -52,19 +54,28 @@ export class RegisterComponent implements OnInit {
     this.newUser.registro(this.formRegister.value)
       .then(response => {
         if (response.affectedRows === 1) {
-          alert('Registro completo');
-          localStorage.setItem('token', response.token);
+          this.status = 'success';
+          // localStorage.setItem('token', response.token);
           this.router.navigate(['/login']);
         } else {
           // Recorrer el array y sacar la propiedad msg al nuevo array
           this.errores = response.map((error: any) => error.msg);
-          alert('Registro erroneo');
+          this.status = 'error';
         }
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+
+
+}
+
+
+
+
+
 
 
   // passwordValidator(form: FormGroup) {
@@ -88,4 +99,3 @@ export class RegisterComponent implements OnInit {
   //     this.userValid = 1;
   //   }
   // }
-}

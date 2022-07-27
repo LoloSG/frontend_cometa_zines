@@ -38,15 +38,35 @@
                                 apatía materializada en forma de colectivo punk.</p>
                         </div>
                     </div>
-
-
                     <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                 </div>
             </div>
         </section>
 
+
+
         <section class="row">
-            <article class="post col-12 col-md-3 col-lg-3">
+
+            <article class="post col-12 col-md-3 col-lg-3" *ngFor="let Post of arrPosts">
+                <div class="single-blog-item">
+                    <!-- <pdf-viewer [src]="" [render-text]="true"
+                        [original-size]="false" style="width: 33%; height: 100px"></pdf-viewer> -->
+                    <figure class="blog-thumnail">
+                        <img class="post_image" [src]="'http://localhost:3000/images/posts/' + Post.file"
+                            alt="blog-img">
+                    </figure>
+                    <span class="blog-date">{{Post.title}}</span>
+                    <span class="blog-autor">{{Post.date_publish}}</span>
+                </div>
+            </article>
+
+
+
+
+
+
+
+            <!-- <article class="post col-12 col-md-3 col-lg-3">
                 <div class="single-blog-item">
                     <figure class="blog-thumnail">
                         <img class="post_image"
@@ -150,7 +170,7 @@
                     <span class="blog-autor">date.pubish</span>
                 </div>
             </article>
-
+ -->
 
 
 

@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         } else {
           alert('Login correctísimo');
           localStorage.setItem('token', response.token);
+          console.log(response.token)
           this.router.navigate(['/miperfil']);
         }
       }).catch(err => console.log(err));
